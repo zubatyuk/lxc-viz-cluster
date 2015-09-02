@@ -17,6 +17,7 @@ lxc-create -t download -n srvtmpl -- --dist ubuntu --release trusty --arch amd64
 lcxroot=/var/lib/lxc/srvtmpl/rootfs
 echo "lxc.aa_profile = unconfined" >> /var/lib/lxc/srvtmpl/config
 lxc-start -n srvtmpl -d
+sleep 5
 
 lxc-attach -n srvtmpl << EOF
 apt-get update
@@ -28,7 +29,7 @@ apt-get update
 apt-get -y install nvidia-355 bumblebee
 apt-get -y grub2
 apt-get clean
-"echo 'US/Central' > /etc/timezone"
+echo 'US/Central' > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 rm /etc/ssh/ssh_host_*
 perl -i -pe "s/^PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/sshd_config
