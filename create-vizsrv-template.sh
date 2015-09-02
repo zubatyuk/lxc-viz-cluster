@@ -20,7 +20,7 @@ lxc-start -n srvtmpl -d
 
 lxc-attach -n srvtmpl << EOF
 apt-get update
-apt-get -y install lxc tasksel linux-generic-lts-vivid nfs-kernel-server
+apt-get -y install lxc tasksel linux-generic-lts-vivid
 tasksel install server openssh-server
 tasksel install openssh-server
 apt-add-repository -y ppa:xorg-edgers/ppa
