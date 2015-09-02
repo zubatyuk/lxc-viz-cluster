@@ -46,6 +46,7 @@ EOF
 chmod +x $lxcroot/etc/rc.local
 
 lxc-stop -n srvtmpl
+sleep 5
 
 cd $lxcroot
 tar --acls --xattrs --keep-directory-symlink --numeric-owner --selinux -czf $archive * 
