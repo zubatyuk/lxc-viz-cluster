@@ -1,0 +1,15 @@
+#!/bin/bash
+
+CLUST=$1
+
+set -e
+
+apt-get update && apt-get -y upgrade
+apt-get -y install curl
+
+#network
+curl https://raw.githubusercontent.com/zubatyuk/lxc-viz-cluster/master/conf/ns-${CLUST}-interfaces > /etc/network.insterfaces
+
+#dns
+apt-get -y install dnsmasq bind9utils
+curl https://raw.githubusercontent.com/zubatyuk/lxc-viz-cluster/master/conf/ns-hosts > /etc/hosts
