@@ -32,7 +32,7 @@ EOF
 
 lxc-start -n srvtmpl -d && lxc-wait -n srvtmpl -s RUNNING
 sleep 20
-lxc-attach -- bash /root/scripts/init.sh
+lxc-attach -n srvtmpl -- bash /root/scripts/init.sh
 lxc-stop -n srvtmpl && lxc-wait -n srvtmpl -s STOPPED
 sleep 5
 
