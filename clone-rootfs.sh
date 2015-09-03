@@ -55,10 +55,8 @@ umount /mnt/${DEVICE}3/dev
 umount /mnt/${DEVICE}3/proc
 umount /mnt/${DEVICE}3/sys
 
+umount /mnt/${DEVICE}3
+rmdir /mnt/${DEVICE}3
+
 ###
 echo " Success!!"
-echo "Edit system files and umount target:"
-echo "vi /mnt/${DEVICE}3/@/etc/hostname"
-echo "vi /mnt/${DEVICE}3/@/etc/network/interfaces"
-echo "umount /mnt/${DEVICE}3/@/"
-
