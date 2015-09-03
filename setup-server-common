@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#apt proxy
+echo 'Acquire::http::proxy "http://apt-cacher:3142";' > /apt.conf.d/02proxy
+echo 'Acquire::https::proxy "http://apt-cacher:3142";' >> /apt.conf.d/02proxy
+
+#upgrades
+apt-get -y install unattended-upgrades
+echo "APT::Periodic::Update-Package-Lists \"1\";" > /etc/apt/apt.conf.d/22auto-upgrade
+echo "APT::Periodic::Unattended-Upgrade \"1\";" >> /etc/apt/apt.conf.d/22auto-upgrade
+
+#timezone
+echo 'US/Central' > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
