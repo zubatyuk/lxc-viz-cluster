@@ -1,8 +1,15 @@
 #!/bin/bash
 
 #apt proxy
-echo 'Acquire::http::proxy "http://apt-cacher:3142";' > /apt.conf.d/02proxy
-echo 'Acquire::https::proxy "http://apt-cacher:3142";' >> /apt.conf.d/02proxy
+echo 'Acquire::http::proxy "http://aptproxy:3142";' > /apt.conf.d/02proxy
+echo 'Acquire::https::proxy "http://approxy:3142";' >> /apt.conf.d/02proxy
+
+#clean apt cache since we use apt-proxy-ng
+cat > /etc/cron.hourly/apt-clean << EOF
+#!/bin/bash
+apt-get clean
+EOF
+chmod +x /etc/cron.hourly/apt-clean
 
 #upgrades
 apt-get -y install unattended-upgrades
