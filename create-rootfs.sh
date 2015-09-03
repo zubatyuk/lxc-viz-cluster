@@ -14,7 +14,7 @@ apt-get update
 apt-get -y install lxc lxc-templates
 
 lxc-create -t download -n srvtmpl -- --dist ubuntu --release trusty --arch amd64
-lcxroot=/var/lib/lxc/srvtmpl/rootfs
+lxcroot=/var/lib/lxc/srvtmpl/rootfs
 #echo "lxc.aa_profile = unconfined" >> /var/lib/lxc/srvtmpl/config
 
 mkdir $lxcroot/root/scripts
