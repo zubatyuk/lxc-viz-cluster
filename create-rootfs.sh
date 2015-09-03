@@ -11,11 +11,11 @@ if [ -z $archive ]; then
 fi
 
 apt-get update 
-apt-get -y install lxc
+apt-get -y install lxc lxc-templates
 
 lxc-create -t download -n srvtmpl -- --dist ubuntu --release trusty --arch amd64
 lcxroot=/var/lib/lxc/srvtmpl/rootfs
-echo "lxc.aa_profile = unconfined" >> /var/lib/lxc/srvtmpl/config
+#echo "lxc.aa_profile = unconfined" >> /var/lib/lxc/srvtmpl/config
 
 mkdir $lxcroot/root/scripts
 cat > $lxcroot/root/scripts/init.sh << EOF
