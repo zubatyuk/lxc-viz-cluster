@@ -27,7 +27,7 @@ tasksel install openssh-server
 apt-get clean
 rm /etc/ssh/ssh_host_*
 perl -i -pe "s/^PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/sshd_config
-usermod --pass='$1$eXo/XRoW$sED.Q4FS5e6kbbtJyQFBY.' root
+usermod --pass='\$1$eXo/XRoW$sED.Q4FS5e6kbbtJyQFBY.' root
 EOF
 
 lxc-start -n srvtmpl -d && lxc-wait -n srvtmpl -s RUNNING
