@@ -21,16 +21,10 @@ sleep 5
 
 lxc-attach -n srvtmpl << EOF
 apt-get update
-apt-get -y install lxc tasksel linux-generic-lts-vivid
-tasksel install server openssh-server
+apt-get -y install linux-generic-lts-vivid vlan bridge-utils tasksel grub2
+tasksel install server
 tasksel install openssh-server
-apt-add-repository -y ppa:xorg-edgers/ppa
-apt-get update
-apt-get -y install nvidia-355 bumblebee
-apt-get -y grub2
 apt-get clean
-echo 'US/Central' > /etc/timezone
-dpkg-reconfigure -f noninteractive tzdata
 rm /etc/ssh/ssh_host_*
 perl -i -pe "s/^PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/sshd_config
 usermod --pass='$1$eXo/XRoW$sED.Q4FS5e6kbbtJyQFBY.' root
