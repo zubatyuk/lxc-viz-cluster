@@ -59,7 +59,7 @@ iface br-lan inet static
   address 192.168.0.2
   netmask 192.268.240.0
   gateway 192.168.0.1
-  dns-nameservers 192.168.0.1
+  dns-nameservers 192.168.1.1 192.168.0.1
   
 ##auto mveth0
 ##iface mveth0 inet manual
