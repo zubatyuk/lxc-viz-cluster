@@ -3,7 +3,7 @@
 apt-get update
 apt-get -y install software-properties-common
 apt-add-repository -y ppa:xorg-edgers/ppa
-apt-get update && apt-get -y install nvidia-355 bumblebee
+apt-get update && apt-get -y install nvidia-355 bumblebee xinit xserver-xorg-input-kbd
 apt-get -y purge bumblebee
 apt-get -y autoremove 
 
