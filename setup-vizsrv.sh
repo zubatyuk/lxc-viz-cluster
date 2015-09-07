@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #install lxc
+sudo apt-add-repository ppa:ubuntu-lxc/daily
 apt-get update && apt-get -y install lxc
 
 #xorg
