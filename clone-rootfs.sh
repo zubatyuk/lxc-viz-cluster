@@ -50,12 +50,11 @@ chroot /mnt/${DEVICE}3 grub-install /dev/${DEVICE}
 chroot /mnt/${DEVICE}3 update-grub
 cd $d
 
-umount /mnt/${DEVICE}3/dev
-umount /mnt/${DEVICE}3/proc
-umount /mnt/${DEVICE}3/sys
-
-umount /mnt/${DEVICE}3
-rmdir /mnt/${DEVICE}3
-
 ###
-echo " Success!!"
+echo "Success!!"
+echo "Run commands to umount image:"
+echo umount /mnt/${DEVICE}3/dev
+echo umount /mnt/${DEVICE}3/proc
+echo umount /mnt/${DEVICE}3/sys
+echo umount /mnt/${DEVICE}3
+echo rmdir /mnt/${DEVICE}3
